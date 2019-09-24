@@ -1,0 +1,25 @@
+##### 강의에서 다룰 내용 소개
+
+- big o notation
+- analyzing performance of arrays and objects
+- problem solving approach
+- problem solving pattern
+- recursion
+- searching algorithms
+- bubble sort
+- selection sort
+- insertion sort
+- merge sort
+- quick sort
+- radix sort
+- intro to data structures (es6 class에 기반)
+- singly linked lists
+- doubly linked lists
+- stacks ques
+- binary search tress
+- tree traversal
+- binary heaps
+- hash tables
+- graphs
+- graph traversal
+- dijkstra's algorithms
