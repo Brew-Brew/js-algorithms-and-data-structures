@@ -141,3 +141,48 @@ function subtotals(array) {
 ```
 
 - O(n²)
+
+##### space complexity
+
+- 알고리즘의 메모리 사용량에 대한 분석결과
+
+- auxiliary space complexity
+  - **not including space taken by the inputs**
+- space complexity in js
+  - most primitives(boolean, numbers, undefined, null) -> `constant space`
+  - `strings` -> require O(n) space -> string 길이 = n
+  - reference types are generally O(n)
+    - where n is the length (`for array`)
+    - or the number of keys (`for object`)
+
+```javascript
+function sum(arr){
+  let total = 0;
+  for(let i=0; i <arr.length; i++>){
+    total += arr[i];
+  }
+  return total;
+}
+```
+
+- O(1) space
+
+```javascript
+function double(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(2 * arr[i]);
+  }
+  return newArr;
+}
+```
+
+= O(n) space
+
+##### logarithms
+
+- time complexity is log + algorithms
+- 때때로 big o notation이 log와 같은 복잡도를 가지기도 한다.
+- logarithm of a number roughly measures the number of times you can divide that number by 2 **before you get a value less than or equal to one**
+
+  ![스크린샷 2019-09-28 오후 6 24 54](https://user-images.githubusercontent.com/26598542/65814501-a1eb6b80-e21d-11e9-802a-774663740c20.png)
