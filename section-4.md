@@ -68,3 +68,34 @@ function charCount(str) {
   // return object at end
 }
 ```
+
+##### solve or simplify
+
+- simplify
+  - 당신이 하려는것에서 가장 어려운것을 찾으세요
+  - 잠시동안 그 어려운것을 무시해두세요
+  - 간단한 solution을 작성해보세요
+  - 그 어려웠던 것을 그때 합쳐보세요
+
+```javascript
+function charCount(str) {
+  // make object to return at end
+  var result ={};
+  // loop over string, for each character...
+  for(var i=0;i<str.length;i++>){
+    var char = str[i].toLowerCae()
+    // -if char is a number/letter AND is a key in object, add one to count
+    if(result[char] > 0){
+      result[char]++;
+    }
+    // -if the char is a number/letter AND not in object, add it to object and set value to 1
+    else{
+      result[char] = 1;
+    }
+  }
+  // -if character is something else (space, period, etc.) don't do anything
+  // return object at end
+
+  return result;
+}
+```
