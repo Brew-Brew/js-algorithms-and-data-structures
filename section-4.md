@@ -83,7 +83,7 @@ function charCount(str) {
   var result ={};
   // loop over string, for each character...
   for(var i=0;i<str.length;i++>){
-    var char = str[i].toLowerCae()
+    var char = str[i].toLowerCase()
     // -if char is a number/letter AND is a key in object, add one to count
     if(result[char] > 0){
       result[char]++;
@@ -97,5 +97,72 @@ function charCount(str) {
   // return object at end
 
   return result;
+}
+```
+##### look back and refactor
+
+리팩토링 질문들
+
+- can you check the result?
+- can you derive the result differently?
+- can you understand it at a glance?
+- can you use the result or method for some other problem?
+- can you improve the performance of your solution?
+- can you think of other ways to refactor?
+- how have other people solved this problem?
+
+```javascript
+function charCount(str){
+  var obj = {};
+  for (var char of str){
+    char = char.toLowerCase();
+    if(/a-z0-9/.test(char)){
+      if(obj[char] > 0) {
+        obj[char]++;
+      }else {
+        obj[char] = 1;
+      }
+    }
+  }
+  return obj;
+}
+```
+- 정규표현식은 브라우저나, 여러 상황에 따라 성능이 다를 수 있음
+
+```javascript
+function charCount(str){
+  var obj = {};
+  for (var char of str){
+    char = char.toLowerCase();
+    if(/a-z0-9/.test(char)){
+      obj[char] = ++obj[char] || 1;
+    }
+  }
+  return obj;
+}
+```
+
+- 아래와 같은 답안도 있다고 명시해주는것이 좋음 
+```javascript
+function isAlphaNumeric(char){
+  var code = char.charCodeAt(0);
+  if(!(code > 47 && code < 58) && // numeric (0-9)
+     !(code > 64 && code < 91) && // upper alpha (A-Z)
+     !(code > 96 && code < 123>)){ // lower alpha (a-z)
+       return false
+     }
+     return true; 
+}
+
+
+function charCount(str){
+  var obj = {};
+  for (var char of str){
+    char = char.toLowerCase();
+    if(isAlphaNumeric(char)){
+      obj[char] = ++obj[char] || 1;
+    }
+  }
+  return obj;
 }
 ```
